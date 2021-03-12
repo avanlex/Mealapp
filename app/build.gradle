@@ -83,10 +83,6 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
 
-    //Moxy
-    implementation "tech.schoolhelper:moxy-x-androidx:1.7.0"
-    kapt "com.arello-mobile:moxy-compiler:1.5.5"
-
     // optional - Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
