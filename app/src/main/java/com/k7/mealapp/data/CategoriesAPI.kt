@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class CategoriesAPI(
 
-    @SerializedName("categories") var categories : List<Categories>
+    @SerializedName("categories") var categories : List<Category>
 
 )
