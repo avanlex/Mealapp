@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ShapeAppearanceOverlay.App.BottomCornerRadius" parent="">
+        <item name="cornerSizeBottomRight">40dp</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">40dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+</resources>
