@@ -1,6 +1,7 @@
 package com.k7.mealapp.network
 
 import com.k7.mealapp.data.*
+import com.k7.mealapp.data.model.api.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
@@ -16,7 +17,7 @@ class Network {
 
     //Поиск по названию блюда(блюд)
    suspend fun  searchFoodName(nameMeal:String): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchAPI?=null
+        var meals: SearchAPI?=null
 
              meals = RetrofitModule.mealApi.getSearchFoodName(nameMeal)
 
@@ -27,7 +28,7 @@ class Network {
 
     //Поиск блюда по id
     suspend fun  searchFoodID(id:String): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchAPI?=null
+        var meals: SearchAPI?=null
 
         meals = RetrofitModule.mealApi.getSearchFoodID(id)
 
@@ -38,7 +39,7 @@ class Network {
 
     //Выдает рандомное блюдо
     suspend fun  searchFoodRandom(): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchAPI?=null
+        var meals: SearchAPI?=null
 
         meals = RetrofitModule.mealApi.getSearchFoodRandom()
 
@@ -49,7 +50,7 @@ class Network {
 
     //Выдает список возможных категорий
     suspend fun  allCategoriesFood(): CategoriesAPI?= withContext(Dispatchers.IO) {
-        var meals:CategoriesAPI?=null
+        var meals: CategoriesAPI?=null
 
         meals = RetrofitModule.mealApi.getAllCategoriesFood()
 
@@ -60,7 +61,7 @@ class Network {
 
     //Выдает список стран откуда блюда
     suspend fun  allAreaFood(): AreaAPI?= withContext(Dispatchers.IO) {
-        var meals:AreaAPI?=null
+        var meals: AreaAPI?=null
 
         meals = RetrofitModule.mealApi.getAllAreaFood()
 
@@ -71,7 +72,7 @@ class Network {
 
     //Выдает список возможных ингридиентов
     suspend fun  allIngredientsFood(): IngredientsAPI?= withContext(Dispatchers.IO) {
-        var meals:IngredientsAPI?=null
+        var meals: IngredientsAPI?=null
 
         meals = RetrofitModule.mealApi.getAllIngredientsFood()
 
@@ -83,7 +84,7 @@ class Network {
 
     //Выдает список блюд с главным блюдом
     suspend fun  searchMealForMainIngredient(mainIgridient: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchMainIngredientAndAreaAndCategoryAPI?=null
+        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
 
         meals = RetrofitModule.mealApi.getMealForFindMainIngredient(mainIgridient)
 
@@ -94,7 +95,7 @@ class Network {
 
     //Выдает список блюд нужной категории
     suspend fun  searchMealForCategory(category: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchMainIngredientAndAreaAndCategoryAPI?=null
+        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
 
         meals = RetrofitModule.mealApi.getMealFromCategory(category)
 
@@ -105,7 +106,7 @@ class Network {
 
     //Выдает список блюд определенной страны
     suspend fun  searchMealForArea(area: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals:SearchMainIngredientAndAreaAndCategoryAPI?=null
+        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
 
         meals = RetrofitModule.mealApi.getMealFromArea(area)
 
