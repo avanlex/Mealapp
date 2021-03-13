@@ -2,10 +2,9 @@ package com.k7.mealapp.data.model.api
 
 import com.google.gson.annotations.SerializedName
 
-data class IngredientsAPI(
 
+data class AreasAllAPI (
 
-    @SerializedName("meals") var ingredients : List<IngredientAPI>
-
+    @SerializedName("meals") var areas : List<AreaAPI>
 
 )

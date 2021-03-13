@@ -6,7 +6,9 @@ import com.google.gson.annotations.SerializedName
 
 data class SearchAPI (
 
-    @SerializedName("meals") var meals : List<Meal>
+
+    @SerializedName("meals") var meals : List<MealAPI>
+
 
 )
 
