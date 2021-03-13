@@ -1,4 +1,4 @@
-package com.k7.mealapp.details
+package com.k7.mealapp.ui
 
 import com.k7.mealapp.models.dto.MealDto
 

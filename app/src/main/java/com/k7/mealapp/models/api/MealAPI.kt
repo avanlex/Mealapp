@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MealAPI (
 
-    @SerializedName("idMeal") var idMeal : Int?,
+    @SerializedName("idMeal") var idMeal : Int,
     @SerializedName("strMeal") var meal : String?,
     @SerializedName("strDrinkAlternate") var drinkAlternate : String?,
     @SerializedName("strCategory") var category : String?,

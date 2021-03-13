@@ -55,7 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGreetings"
         app:layout_constraintVertical_bias="0.0"
         tools:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/item_recipe"
+        tools:listitem="@layout/view_holder_meal"
         tools:orientation="horizontal" />
 
     <LinearLayout

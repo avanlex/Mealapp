@@ -1,7 +1,7 @@
 package com.k7.mealapp.models.dto
 
 data class MealDto(
-    var idMeal : String,
+    var idMeal : Int,
     var name : String,
     var drinkAlternate : String,
     var category : String,

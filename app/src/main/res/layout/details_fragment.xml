@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/iv_bottom_gradient"
         android:layout_width="0dp"
@@ -32,67 +35,69 @@
         app:srcCompat="@drawable/soup"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <TextView
-        android:id="@+id/tv_meal_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/gradient_box"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        tools:text="Tasy Meal Name"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_meal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/iv_ingridient_box"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/white_box"
+            android:elevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_bottom_gradient"
+            tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/tv_meal_name2"
-        android:layout_width="0dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/white_box"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_bottom_gradient"
-        tools:text="Tasy Meal Name" />
+        <TextView
+            android:id="@+id/tv_meal_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/gradient_box"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_meal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Tasy Meal Name" />
 
-    <TextView
-        android:id="@+id/tv_meal_name3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/white_box"
-        android:gravity="center"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_meal_name2"
-        tools:text="Step 1 Preheat oven to 180° C.
-Step 2 Combine carrots, onion, garlic, cumin seeds, coriander seeds, salt and olive oil in a bowl and mix well.
-Transfer on a baking tray.
-Step 3 Put the baking tray in preheated oven and roast for 10-12 minutes or till carrots soften.
-Remove from heat and cool.
-Step 4 Grind the baked carrot mixture along with some water to make a smooth paste and strain in a bowl.
-Step 5 Heat the carrot mixture in a non-stick pan.
-Add two cups of water and bring to a boil.
-Add garam masala powder and mix.
-Add salt and mix well.
-Step 6 Remove from heat, add lemon juice and mix well.
-Step 7 Serve hot." />
+        <TextView
+            android:id="@+id/tv_meal_name3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/white_box"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_ingridient_box"
+            tools:text="@string/recipe_demo_text" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_ingridient_box"
+            app:layout_constraintEnd_toEndOf="@+id/iv_ingridient_box"
+            app:layout_constraintStart_toStartOf="@+id/iv_ingridient_box"
+            app:layout_constraintTop_toTopOf="@+id/iv_ingridient_box"
+            tools:listitem="@layout/view_holder_ingridient" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
