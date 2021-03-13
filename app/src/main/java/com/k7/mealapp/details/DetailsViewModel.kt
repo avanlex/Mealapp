@@ -6,9 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.k7.mealapp.R
-import com.k7.mealapp.data.dto.MealDto
-import com.k7.mealapp.repository.MealRepository
+
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
