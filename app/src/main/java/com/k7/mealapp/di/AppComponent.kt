@@ -14,7 +14,8 @@ import dagger.android.AndroidInjector
         DatabaseModule::class,
         CoreModule::class,
         ScreenBindingModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        RepositoryModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MealApplication> {
