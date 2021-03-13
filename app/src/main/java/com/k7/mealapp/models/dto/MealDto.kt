@@ -1,7 +1,4 @@
-package com.k7.mealapp.data.dto
-
-import com.k7.mealapp.data.Meals
-
+package com.k7.mealapp.models.dto
 
 data class MealDto(
     var idMeal : String,

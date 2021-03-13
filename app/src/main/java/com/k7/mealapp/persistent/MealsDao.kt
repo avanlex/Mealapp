@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
+@Dao
 interface MealsDao {
 
     @Query("SELECT * FROM meals")
