@@ -27,7 +27,7 @@ class Network {
     }
 
     //Поиск блюда по id
-    suspend fun  searchFoodID(id:String): SearchAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchFoodID(id:Int): SearchAPI?= withContext(Dispatchers.IO) {
         var meals: SearchAPI?=null
 
         meals = RetrofitModule.mealApi.getSearchFoodID(id)
@@ -147,7 +147,7 @@ class Network {
 
         //Поиск блюда по id
         @GET("lookup.php")
-        suspend fun getSearchFoodID(@Query("i") id: String ): SearchAPI
+        suspend fun getSearchFoodID(@Query("i") id: Int ): SearchAPI
 
         //Поиск по названию блюда(блюд)
         @GET("search.php")
