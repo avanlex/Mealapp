@@ -1,7 +1,7 @@
 package com.k7.mealapp.network
 
 import com.k7.mealapp.data.*
-import com.k7.mealapp.data.model.api.*
+import com.k7.mealapp.model.api.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
@@ -27,7 +27,7 @@ class Network {
     }
 
     //Поиск блюда по id
-    suspend fun  searchFoodID(id:String): SearchAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchFoodID(id:Int): SearchAPI?= withContext(Dispatchers.IO) {
         var meals: SearchAPI?=null
 
         meals = RetrofitModule.mealApi.getSearchFoodID(id)
@@ -60,8 +60,8 @@ class Network {
     }
 
     //Выдает список стран откуда блюда
-    suspend fun  allAreaFood(): AreaAPI?= withContext(Dispatchers.IO) {
-        var meals: AreaAPI?=null
+    suspend fun  allAreaFood(): AreasAPI?= withContext(Dispatchers.IO) {
+        var meals: AreasAPI?=null
 
         meals = RetrofitModule.mealApi.getAllAreaFood()
 
@@ -135,7 +135,7 @@ class Network {
 
         //Выдает список стран откуда блюда
         @GET("list.php?a=list")
-        suspend fun getAllAreaFood(): AreaAPI
+        suspend fun getAllAreaFood(): AreasAPI
 
         //Выдает список возможных категорий
         @GET("categories.php")
@@ -147,7 +147,7 @@ class Network {
 
         //Поиск блюда по id
         @GET("lookup.php")
-        suspend fun getSearchFoodID(@Query("i") id: String ): SearchAPI
+        suspend fun getSearchFoodID(@Query("i") id: Int ): SearchAPI
 
         //Поиск по названию блюда(блюд)
         @GET("search.php")
