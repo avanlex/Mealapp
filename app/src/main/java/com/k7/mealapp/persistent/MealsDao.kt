@@ -20,6 +20,6 @@ interface MealsDao {
     suspend fun updateMeal(meal: MealEntity)
 
     @Delete
-    suspend fun deleteOldMeal(time: Long)
+    suspend fun deleteOldMeal(lastViewTime: Long)
 
 }
