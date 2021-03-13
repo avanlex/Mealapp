@@ -15,47 +15,47 @@ import retrofit2.http.Query
 class Network {
 
     //Поиск по названию блюда(блюд)
-   suspend fun  searchFoodName(nameMeal:String): SearchAPI?= withContext(Dispatchers.IO) {
+   suspend fun  searchFoodName(nameMeal:String): SearchAPI= withContext(Dispatchers.IO) {
        RetrofitModule.mealApi.getSearchFoodName(nameMeal)
     }
 
     //Поиск блюда по id
-    suspend fun  searchFoodID(id:Int): SearchAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchFoodID(id:Int): SearchAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getSearchFoodID(id)
     }
 
     //Выдает рандомное блюдо
-    suspend fun  searchFoodRandom(): SearchAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchFoodRandom(): SearchAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getSearchFoodRandom()
     }
 
     //Выдает список возможных категорий
-    suspend fun  allCategoriesFood(): CategoriesAPI?= withContext(Dispatchers.IO) {
+    suspend fun  allCategoriesFood(): CategoriesAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getAllCategoriesFood()
     }
 
     //Выдает список стран откуда блюда
-    suspend fun  allAreaFood(): AreasAPI?= withContext(Dispatchers.IO) {
+    suspend fun  allAreaFood(): AreasAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getAllAreaFood()
     }
 
     //Выдает список возможных ингридиентов
-    suspend fun  allIngredientsFood(): IngredientsAPI?= withContext(Dispatchers.IO) {
+    suspend fun  allIngredientsFood(): IngredientsAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getAllIngredientsFood()
     }
 
     //Выдает список блюд с главным блюдом
-    suspend fun  searchMealForMainIngredient(mainIgridient: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchMealForMainIngredient(mainIgridient: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getMealForFindMainIngredient(mainIgridient)
     }
 
     //Выдает список блюд нужной категории
-    suspend fun  searchMealForCategory(category: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchMealForCategory(category: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getMealFromCategory(category)
     }
 
     //Выдает список блюд определенной страны
-    suspend fun  searchMealForArea(area: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
+    suspend fun  searchMealForArea(area: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getMealFromArea(area)
     }
 
