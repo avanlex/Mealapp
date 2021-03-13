@@ -2,11 +2,16 @@ package com.k7.mealapp.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.k7.mealapp.R
 import dagger.android.support.AndroidSupportInjection
+import kotlinx.serialization.ExperimentalSerializationApi
 import javax.inject.Inject
 
 class ExploreFragment : Fragment(R.layout.explore_fragment) {
@@ -34,8 +39,7 @@ class ExploreFragment : Fragment(R.layout.explore_fragment) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
-
         Log.d("TAG", "onActivityCreated: ${viewModel.getMeal()}")
-    }
 
+    }
 }
