@@ -27,9 +27,7 @@ class Network {
     }
 
     //Поиск блюда по id
-
-    suspend fun  searchFoodID(id:Int): SearchAPI?= withContext(Dispatchers.IO) {
-
+    suspend fun  searchFoodID(id:String): SearchAPI?= withContext(Dispatchers.IO) {
         var meals: SearchAPI?=null
 
         meals = RetrofitModule.mealApi.getSearchFoodID(id)
@@ -62,10 +60,8 @@ class Network {
     }
 
     //Выдает список стран откуда блюда
-
-    suspend fun  allAreaFood(): AreasAllAPI?= withContext(Dispatchers.IO) {
-        var meals: AreasAllAPI?=null
-
+    suspend fun  allAreaFood(): AreaAPI?= withContext(Dispatchers.IO) {
+        var meals: AreaAPI?=null
 
         meals = RetrofitModule.mealApi.getAllAreaFood()
 
@@ -139,9 +135,7 @@ class Network {
 
         //Выдает список стран откуда блюда
         @GET("list.php?a=list")
-
-        suspend fun getAllAreaFood(): AreasAllAPI
-
+        suspend fun getAllAreaFood(): AreaAPI
 
         //Выдает список возможных категорий
         @GET("categories.php")
@@ -153,8 +147,7 @@ class Network {
 
         //Поиск блюда по id
         @GET("lookup.php")
-        suspend fun getSearchFoodID(@Query("i") id: Int ): SearchAPI
-
+        suspend fun getSearchFoodID(@Query("i") id: String ): SearchAPI
 
         //Поиск по названию блюда(блюд)
         @GET("search.php")
