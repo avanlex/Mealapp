@@ -60,8 +60,8 @@ class Network {
     }
 
     //Выдает список стран откуда блюда
-    suspend fun  allAreaFood(): AreaAPI?= withContext(Dispatchers.IO) {
-        var meals: AreaAPI?=null
+    suspend fun  allAreaFood(): AreasAllAPI?= withContext(Dispatchers.IO) {
+        var meals: AreasAllAPI?=null
 
         meals = RetrofitModule.mealApi.getAllAreaFood()
 
@@ -135,7 +135,7 @@ class Network {
 
         //Выдает список стран откуда блюда
         @GET("list.php?a=list")
-        suspend fun getAllAreaFood(): AreaAPI
+        suspend fun getAllAreaFood(): AreasAllAPI
 
         //Выдает список возможных категорий
         @GET("categories.php")
