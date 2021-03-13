@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 class MealRepositoryImpl @Inject constructor(
     private val apiSource: MealApiService,
-
     private val db: MealsDao
 ) : MealRepository {
 
@@ -29,9 +28,6 @@ class MealRepositoryImpl @Inject constructor(
             Log.d("REPO", e.message.toString())
             emptyList()
         }
-
-////        apiSource.getSearchFoodRandom().meals.map { it.convertToPojo() }
-//        network.searchFoodRandom().meals.map { it.convertToPojo() }
     }
 
 }
