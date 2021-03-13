@@ -1,7 +1,7 @@
 package com.k7.mealapp.network
 
 import com.k7.mealapp.data.*
-import com.k7.mealapp.data.model.api.*
+import com.k7.mealapp.model.api.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
@@ -14,109 +14,52 @@ import retrofit2.http.Query
 
 class Network {
 
-
     //Поиск по названию блюда(блюд)
-   suspend fun  searchFoodName(nameMeal:String): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchAPI?=null
-
-             meals = RetrofitModule.mealApi.getSearchFoodName(nameMeal)
-
-
-
-       return@withContext meals
+   suspend fun  searchFoodName(nameMeal:String): SearchAPI= withContext(Dispatchers.IO) {
+       RetrofitModule.mealApi.getSearchFoodName(nameMeal)
     }
 
     //Поиск блюда по id
-    suspend fun  searchFoodID(id:String): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchAPI?=null
-
-        meals = RetrofitModule.mealApi.getSearchFoodID(id)
-
-
-
-        return@withContext meals
+    suspend fun  searchFoodID(id:Int): SearchAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getSearchFoodID(id)
     }
 
     //Выдает рандомное блюдо
-    suspend fun  searchFoodRandom(): SearchAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchAPI?=null
-
-        meals = RetrofitModule.mealApi.getSearchFoodRandom()
-
-
-
-        return@withContext meals
+    suspend fun  searchFoodRandom(): SearchAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getSearchFoodRandom()
     }
 
     //Выдает список возможных категорий
-    suspend fun  allCategoriesFood(): CategoriesAPI?= withContext(Dispatchers.IO) {
-        var meals: CategoriesAPI?=null
-
-        meals = RetrofitModule.mealApi.getAllCategoriesFood()
-
-
-
-        return@withContext meals
+    suspend fun  allCategoriesFood(): CategoriesAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getAllCategoriesFood()
     }
 
     //Выдает список стран откуда блюда
-    suspend fun  allAreaFood(): AreaAPI?= withContext(Dispatchers.IO) {
-        var meals: AreaAPI?=null
-
-        meals = RetrofitModule.mealApi.getAllAreaFood()
-
-
-
-        return@withContext meals
+    suspend fun  allAreaFood(): AreasAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getAllAreaFood()
     }
 
     //Выдает список возможных ингридиентов
-    suspend fun  allIngredientsFood(): IngredientsAPI?= withContext(Dispatchers.IO) {
-        var meals: IngredientsAPI?=null
-
-        meals = RetrofitModule.mealApi.getAllIngredientsFood()
-
-
-
-
-        return@withContext meals
+    suspend fun  allIngredientsFood(): IngredientsAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getAllIngredientsFood()
     }
 
     //Выдает список блюд с главным блюдом
-    suspend fun  searchMealForMainIngredient(mainIgridient: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
-
-        meals = RetrofitModule.mealApi.getMealForFindMainIngredient(mainIgridient)
-
-
-
-        return@withContext meals
+    suspend fun  searchMealForMainIngredient(mainIgridient: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getMealForFindMainIngredient(mainIgridient)
     }
 
     //Выдает список блюд нужной категории
-    suspend fun  searchMealForCategory(category: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
-
-        meals = RetrofitModule.mealApi.getMealFromCategory(category)
-
-
-
-        return@withContext meals
+    suspend fun  searchMealForCategory(category: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getMealFromCategory(category)
     }
 
     //Выдает список блюд определенной страны
-    suspend fun  searchMealForArea(area: String): SearchMainIngredientAndAreaAndCategoryAPI?= withContext(Dispatchers.IO) {
-        var meals: SearchMainIngredientAndAreaAndCategoryAPI?=null
-
-        meals = RetrofitModule.mealApi.getMealFromArea(area)
-
-
-
-        return@withContext meals
+    suspend fun  searchMealForArea(area: String): SearchMainIngredientAndAreaAndCategoryAPI= withContext(Dispatchers.IO) {
+        RetrofitModule.mealApi.getMealFromArea(area)
     }
 
     private interface MealApi {
-
         //Выдает список блюд определенной страны
         @GET("filter.php")
         suspend fun getMealFromArea(@Query("a") category: String ): SearchMainIngredientAndAreaAndCategoryAPI
@@ -135,7 +78,7 @@ class Network {
 
         //Выдает список стран откуда блюда
         @GET("list.php?a=list")
-        suspend fun getAllAreaFood(): AreaAPI
+        suspend fun getAllAreaFood(): AreasAPI
 
         //Выдает список возможных категорий
         @GET("categories.php")
@@ -147,29 +90,17 @@ class Network {
 
         //Поиск блюда по id
         @GET("lookup.php")
-        suspend fun getSearchFoodID(@Query("i") id: String ): SearchAPI
+        suspend fun getSearchFoodID(@Query("i") id: Int ): SearchAPI
 
         //Поиск по названию блюда(блюд)
         @GET("search.php")
         suspend fun getSearchFoodName(@Query("s") name: String ): SearchAPI
-
     }
     private object RetrofitModule {
-        private var baseUrl:String="https://www.themealdb.com/api/json/v1/1/"
-
-        private var contentType = "application/json".toMediaType()
-
-
-        private val httpClient = OkHttpClient.Builder().build()
-
-        private val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-
+             private val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://www.themealdb.com/api/json/v1/1/")
             .addConverterFactory(GsonConverterFactory.create())
-
             .build()
-
-
         val mealApi: MealApi = retrofit.create()
     }
 }

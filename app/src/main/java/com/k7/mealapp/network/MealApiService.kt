@@ -1,6 +1,7 @@
 package com.k7.mealapp.network
 
 import com.k7.mealapp.data.*
+import com.k7.mealapp.model.api.*
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -36,7 +37,7 @@ interface MealApiService {
 
     //Поиск блюда по id
     @GET("lookup.php")
-    suspend fun getSearchFoodID(@Query("i") id: String): SearchAPI
+    suspend fun getSearchFoodID(@Query("i") id: Int): SearchAPI
 
     //Поиск по названию блюда(блюд)
     @GET("search.php")
