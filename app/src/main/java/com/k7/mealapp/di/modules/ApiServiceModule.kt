@@ -9,17 +9,20 @@ import dagger.Provides
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import javax.inject.Singleton
 
 @Module
 class ApiServiceModule(private val serverUrl: String) {
 
     @Provides
+    @Singleton
     fun provideMealApi(
         okHttpClient: OkHttpClient,
         gson: Gson
     ) = createApi(MealApiService::class.java, okHttpClient, gson, serverUrl)
 
     @Provides
+    @Singleton
     fun provideOkHttpClient(
         cache: Cache,
         httpLoggingInterceptor: HttpLoggingInterceptor
@@ -31,6 +34,7 @@ class ApiServiceModule(private val serverUrl: String) {
     }
 
     @Provides
+    @Singleton
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val okHttpLogger = HttpLoggingInterceptor()
         okHttpLogger.level = HttpLoggingInterceptor.Level.BODY
@@ -39,12 +43,14 @@ class ApiServiceModule(private val serverUrl: String) {
     }
 
     @Provides
+    @Singleton
     fun provideOkHttpCache(application: Application): Cache {
         val cacheSize: Long = 10 * 1024 * 1024 // 10 MB
         return Cache(application.cacheDir, cacheSize)
     }
 
     @Provides
+    @Singleton
     fun provideGson(): Gson{
         return Gson()
     }

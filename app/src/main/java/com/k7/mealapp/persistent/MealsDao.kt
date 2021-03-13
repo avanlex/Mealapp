@@ -1,9 +1,6 @@
 package com.k7.mealapp.persistent
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface MealsDao {

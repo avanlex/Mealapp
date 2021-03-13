@@ -4,19 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.k7.mealapp.models.dto.MealDto
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ExploreViewModel(
-    mealListProvider: IMealListProvider
+class ExploreViewModel @Inject constructor(
+    private val repository: MealRepository
 ) : ViewModel() {
     private val _mealList: MutableLiveData<List<MealDto>> = MutableLiveData(emptyList())
     val mealList: LiveData<List<MealDto>> = _mealList
 
-    fun getMeal(mealId: Int) {
+    fun getMeal() {
         if (_mealList.value?.isEmpty() == true) {
             viewModelScope.launch {
-                //_mealList.value = mealListProvider.getMeal(mealId)
+                repository.getRandomMeals()
             }
         }
     }

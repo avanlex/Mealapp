@@ -1,18 +1,24 @@
 package com.k7.mealapp.di.modules
 
 import android.app.Application
+import android.content.Context
+import android.content.res.Resources
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class CoreModule(private val application: Application) {
 
     @Provides
-    fun provideApplication() = application
+    @Singleton
+    fun provideApplication(): Application = application
 
     @Provides
-    fun provideContext() = application.applicationContext
+    @Singleton
+    fun provideContext(): Context = application.applicationContext
 
     @Provides
-    fun provideResoures() = application.resources
+    @Singleton
+    fun provideResources(): Resources = application.resources
 }

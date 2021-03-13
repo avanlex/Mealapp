@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 class MealEntity (
     @PrimaryKey
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_ID)
-    val id: Int,
+    val id: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_NAME)
     val mealName: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_CATEGORY)
@@ -105,5 +105,5 @@ class MealEntity (
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_20)
     val mealMeasure_20: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_LAST_VIEW)
-    val mealLastView: Long
+    val mealLastView: String
 )

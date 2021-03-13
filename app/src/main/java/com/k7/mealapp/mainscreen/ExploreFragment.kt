@@ -1,6 +1,7 @@
 package com.k7.mealapp.mainscreen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -33,6 +34,8 @@ class ExploreFragment : Fragment(R.layout.explore_fragment) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // TODO: Use the ViewModel
+
+        Log.d("TAG", "onActivityCreated: ${viewModel.getMeal()}")
     }
 
 }
