@@ -9,6 +9,5 @@ import androidx.room.RoomDatabase
 )
 
 abstract class MealsDatabase : RoomDatabase() {
-    abstract val mealsDao: MealsDao
-
+    abstract fun mealsDao(): MealsDao
 }
