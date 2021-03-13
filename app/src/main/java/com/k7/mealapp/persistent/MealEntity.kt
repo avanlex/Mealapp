@@ -9,101 +9,101 @@ import androidx.room.PrimaryKey
 class MealEntity (
     @PrimaryKey
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_ID)
-    val id: String,
+    var id: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_NAME)
-    val mealName: String,
+    var mealName: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_CATEGORY)
-    val mealCategory: String,
+    var mealCategory: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_DRINK_ALTERNATE)
-    val mealDrinkAlternate: String,
+    var mealDrinkAlternate: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_AREA)
-    val mealArea: String,
+    var mealArea: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INSTRUCTIONS)
-    val mealInstructions: String,
+    var mealInstructions: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_THUMB_URL)
-    val mealThumbURL: String,
+    var mealThumbURL: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_TAGS)
-    val mealTags: String,
+    var mealTags: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_1)
-    val mealIngredient_1: String,
+    var mealIngredient_1: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_2)
-    val mealIngredient_2: String,
+    var mealIngredient_2: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_3)
-    val mealIngredient_3: String,
+    var mealIngredient_3: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_4)
-    val mealIngredient_4: String,
+    var mealIngredient_4: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_5)
-    val mealIngredient_5: String,
+    var mealIngredient_5: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_6)
-    val mealIngredient_6: String,
+    var mealIngredient_6: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_7)
-    val mealIngredient_7: String,
+    var mealIngredient_7: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_8)
-    val mealIngredient_8: String,
+    var mealIngredient_8: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_9)
-    val mealIngredient_9: String,
+    var mealIngredient_9: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_10)
-    val mealIngredient_10: String,
+    var mealIngredient_10: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_11)
-    val mealIngredient_11: String,
+    var mealIngredient_11: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_12)
-    val mealIngredient_12: String,
+    var mealIngredient_12: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_13)
-    val mealIngredient_13: String,
+    var mealIngredient_13: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_14)
-    val mealIngredient_14: String,
+    var mealIngredient_14: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_15)
-    val mealIngredient_15: String,
+    var mealIngredient_15: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_16)
-    val mealIngredient_16: String,
+    var mealIngredient_16: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_17)
-    val mealIngredient_17: String,
+    var mealIngredient_17: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_18)
-    val mealIngredient_18: String,
+    var mealIngredient_18: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_19)
-    val mealIngredient_19: String,
+    var mealIngredient_19: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_INGREDIENT_20)
-    val mealIngredient_20: String,
+    var mealIngredient_20: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_1)
-    val mealMeasure_1: String,
+    var mealMeasure_1: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_2)
-    val mealMeasure_2: String,
+    var mealMeasure_2: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_3)
-    val mealMeasure_3: String,
+    var mealMeasure_3: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_4)
-    val mealMeasure_4: String,
+    var mealMeasure_4: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_5)
-    val mealMeasure_5: String,
+    var mealMeasure_5: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_6)
-    val mealMeasure_6: String,
+    var mealMeasure_6: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_7)
-    val mealMeasure_7: String,
+    var mealMeasure_7: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_8)
-    val mealMeasure_8: String,
+    var mealMeasure_8: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_9)
-    val mealMeasure_9: String,
+    var mealMeasure_9: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_10)
-    val mealMeasure_10: String,
+    var mealMeasure_10: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_11)
-    val mealMeasure_11: String,
+    var mealMeasure_11: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_12)
-    val mealMeasure_12: String,
+    var mealMeasure_12: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_13)
-    val mealMeasure_13: String,
+    var mealMeasure_13: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_14)
-    val mealMeasure_14: String,
+    var mealMeasure_14: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_15)
-    val mealMeasure_15: String,
+    var mealMeasure_15: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_16)
-    val mealMeasure_16: String,
+    var mealMeasure_16: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_17)
-    val mealMeasure_17: String,
+    var mealMeasure_17: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_18)
-    val mealMeasure_18: String,
+    var mealMeasure_18: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_19)
-    val mealMeasure_19: String,
+    var mealMeasure_19: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_MEASURE_20)
-    val mealMeasure_20: String,
+    var mealMeasure_20: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_LAST_VIEW)
-    val mealLastView: String
+    var mealLastView: String
 )

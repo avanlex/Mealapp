@@ -2,10 +2,10 @@ package com.k7.mealapp.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.k7.mealapp.details.DetailsViewModel
+import com.k7.mealapp.ui.DetailsViewModel
 import com.k7.mealapp.di.vm.ViewModelFactory
 import com.k7.mealapp.di.vm.ViewModelKey
-import com.k7.mealapp.mainscreen.ExploreViewModel
+import com.k7.mealapp.ui.ExploreViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
