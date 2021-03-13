@@ -65,7 +65,7 @@ class ExploreFragment : Fragment(R.layout.explore_fragment) {
 //        viewModel.addToFavorite.observe(this.viewLifecycleOwner, this.adapterMovies::notifyItemChanged)
 //        viewModel.getMeals()
 //        viewModel.mealList.observe(this.viewLifecycleOwner, this.adapterMeals::bind)
-//        lifecycleScope(Dispatchers.Main).launch {
+//        lifecycleScope.launch {
         CoroutineScope(Dispatchers.Main).launch {
             viewModel.getMealsFlow().collect {
                 adapterMeals.bind(it)

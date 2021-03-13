@@ -17,7 +17,8 @@ class MealRepositoryImpl @Inject constructor(
     override suspend fun getRandomMeals(): List<MealDto> = withContext(Dispatchers.IO){
 
         return@withContext try {
-            val mealsList = apiSource.getSearchFoodRandom()
+//            val mealsList = apiSource.getSearchFoodRandom()
+            val mealsList = apiSource.getSearchFoodName("a")
             println("REPO" + mealsList.meals)
             mealsList.meals.map { it.convertToPojo() }
         }catch (e : Throwable){
