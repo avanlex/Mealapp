@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 class MealEntity (
     @PrimaryKey
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_ID)
-    val id: String,
+    val id: Int,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_NAME)
     val mealName: String,
     @ColumnInfo(name = MealDatabaseContract.Meal.COLUMN_MEAL_CATEGORY)
