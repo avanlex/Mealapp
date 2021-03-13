@@ -61,6 +61,5 @@ class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             error(R.drawable.ic_broken)
         }
 
-
     }
 }

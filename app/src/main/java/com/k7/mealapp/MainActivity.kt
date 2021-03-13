@@ -20,8 +20,10 @@ class MainActivity : AppCompatActivity() {
                     .commitNow()
         }
         createNotificationChannel()
+
         val servise = WorkWithWorkmanager()
         servise.startService()
+
     }
 
     private fun createNotificationChannel() {

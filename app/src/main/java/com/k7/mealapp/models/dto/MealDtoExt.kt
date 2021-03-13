@@ -63,4 +63,3 @@ fun MealAPI.convertToPojo() =
     dateModified = this.dateModified?: ""
     )
 
-
