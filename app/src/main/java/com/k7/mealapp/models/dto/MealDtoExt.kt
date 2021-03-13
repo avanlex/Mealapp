@@ -2,64 +2,65 @@ package com.k7.mealapp.models.dto
 
 import com.k7.mealapp.model.api.MealAPI
 
-fun MealDto.convertFrom(meal: MealAPI){
-
-    idMeal = meal.idMeal
-    name = meal.meal?: ""
-    drinkAlternate = meal.drinkAlternate?: ""
-    category = meal.category?: ""
-    area = meal.area?: ""
-    instructions = meal.instructions?: ""
-    mealThumb = meal.mealThumb?: ""
-    tags = meal.tags?: ""
-    youtube = meal.youtube?: ""
+fun MealAPI.convertToPojo() =
+    MealDto(
+    idMeal = this.idMeal,
+    name = this.meal?: "",
+    drinkAlternate = this.drinkAlternate?: "",
+    category = this.category?: "",
+    area = this.area?: "",
+    instructions = this.instructions?: "",
+    mealThumb = this.mealThumb?: "",
+    tags = this.tags?: "",
+    youtube = this.youtube?: "",
     ingredient = listOf(
-                meal.ingredient1 ?: "",
-                meal.ingredient2 ?: "",
-                meal.ingredient3 ?: "",
-                meal.ingredient4 ?: "",
-                meal.ingredient5 ?: "",
-                meal.ingredient6 ?: "",
-                meal.ingredient7 ?: "",
-                meal.ingredient8 ?: "",
-                meal.ingredient9 ?: "",
-                meal.ingredient10?: "",
-                meal.ingredient11?: "",
-                meal.ingredient12?: "",
-                meal.ingredient13?: "",
-                meal.ingredient14?: "",
-                meal.ingredient15?: "",
-                meal.ingredient16?: "",
-                meal.ingredient17?: "",
-                meal.ingredient18?: "",
-                meal.ingredient19?: "",
-                meal.ingredient20?: "",
-    )
+                this.ingredient1 ?: "",
+                this.ingredient2 ?: "",
+                this.ingredient3 ?: "",
+                this.ingredient4 ?: "",
+                this.ingredient5 ?: "",
+                this.ingredient6 ?: "",
+                this.ingredient7 ?: "",
+                this.ingredient8 ?: "",
+                this.ingredient9 ?: "",
+                this.ingredient10?: "",
+                this.ingredient11?: "",
+                this.ingredient12?: "",
+                this.ingredient13?: "",
+                this.ingredient14?: "",
+                this.ingredient15?: "",
+                this.ingredient16?: "",
+                this.ingredient17?: "",
+                this.ingredient18?: "",
+                this.ingredient19?: "",
+                this.ingredient20?: "",
+    ),
     measure= listOf(
-            meal.measure1 ?: "",
-            meal.measure2 ?: "",
-            meal.measure3 ?: "",
-            meal.measure4 ?: "",
-            meal.measure5 ?: "",
-            meal.measure6 ?: "",
-            meal.measure7 ?: "",
-            meal.measure8 ?: "",
-            meal.measure9 ?: "",
-            meal.measure10?: "",
-            meal.measure11?: "",
-            meal.measure12?: "",
-            meal.measure13?: "",
-            meal.measure14?: "",
-            meal.measure15?: "",
-            meal.measure16?: "",
-            meal.measure17?: "",
-            meal.measure18?: "",
-            meal.measure19?: "",
-            meal.measure20?: "",
+            this.measure1 ?: "",
+            this.measure2 ?: "",
+            this.measure3 ?: "",
+            this.measure4 ?: "",
+            this.measure5 ?: "",
+            this.measure6 ?: "",
+            this.measure7 ?: "",
+            this.measure8 ?: "",
+            this.measure9 ?: "",
+            this.measure10?: "",
+            this.measure11?: "",
+            this.measure12?: "",
+            this.measure13?: "",
+            this.measure14?: "",
+            this.measure15?: "",
+            this.measure16?: "",
+            this.measure17?: "",
+            this.measure18?: "",
+            this.measure19?: "",
+            this.measure20?: "",
+    ),
+    source = this.source?: "",
+    imageSource = this.imageSource?: "",
+    creativeCommonsConfirmed = this.creativeCommonsConfirmed?: "",
+    dateModified = this.dateModified?: ""
     )
-    source = meal.source?: ""
-    imageSource = meal.imageSource?: ""
-    creativeCommonsConfirmed = meal.creativeCommonsConfirmed?: ""
-    dateModified = meal.dateModified?: ""
-}
+
 

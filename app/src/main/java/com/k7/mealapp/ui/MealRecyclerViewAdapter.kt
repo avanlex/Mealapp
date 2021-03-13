@@ -54,10 +54,13 @@ class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     ) {
         name.text = meal.name
 
+
         poster.load(meal.imageSource) {
             crossfade(true)
             placeholder(R.drawable.ic_meal)
             error(R.drawable.ic_broken)
         }
+
+
     }
 }

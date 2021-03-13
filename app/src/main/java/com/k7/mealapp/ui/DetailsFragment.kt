@@ -5,14 +5,18 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.k7.mealapp.R
+import com.k7.mealapp.models.dto.MealDto
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DetailsFragment : Fragment(R.layout.details_fragment) {
+class DetailsFragment(
+        meal : MealDto
+) : Fragment(R.layout.details_fragment) {
 
-    companion object {
-        fun newInstance() = DetailsFragment()
-    }
+
+//    companion object {
+//        fun newInstance() = DetailsFragment(null)
+//    }
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory

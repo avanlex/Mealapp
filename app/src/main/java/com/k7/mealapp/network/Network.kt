@@ -1,17 +1,18 @@
 package com.k7.mealapp.network
 
-import com.k7.mealapp.data.*
 import com.k7.mealapp.model.api.*
+import dagger.Module
+import dagger.Provides
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import retrofit2.http.GET
 import retrofit2.http.Query
+import javax.inject.Singleton
 
+@Module
 class Network {
 
     //Поиск по названию блюда(блюд)
@@ -24,6 +25,7 @@ class Network {
         RetrofitModule.mealApi.getSearchFoodID(id)
     }
 
+    @Provides
     //Выдает рандомное блюдо
     suspend fun  searchFoodRandom(): SearchAPI= withContext(Dispatchers.IO) {
         RetrofitModule.mealApi.getSearchFoodRandom()

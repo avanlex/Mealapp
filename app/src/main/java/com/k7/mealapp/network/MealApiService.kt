@@ -1,6 +1,6 @@
 package com.k7.mealapp.network
 
-import com.k7.mealapp.data.*
+
 import com.k7.mealapp.model.api.*
 import retrofit2.http.GET
 import retrofit2.http.Query

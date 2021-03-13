@@ -4,7 +4,7 @@ import androidx.work.*
 import kotlinx.coroutines.withContext
 
 import java.util.concurrent.TimeUnit
-class WorkWithWorkmeneger {
+class WorkWithWorkmanager {
 
     private val constraints = Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
 

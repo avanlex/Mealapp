@@ -5,6 +5,7 @@ import android.app.NotificationManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.k7.mealapp.service.WorkWithWorkmanager
 import com.k7.mealapp.ui.ExploreFragment
 import dagger.android.AndroidInjection
 
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
                     .commitNow()
         }
         createNotificationChannel()
+        val servise = WorkWithWorkmanager()
+        servise.startService()
     }
 
     private fun createNotificationChannel() {
