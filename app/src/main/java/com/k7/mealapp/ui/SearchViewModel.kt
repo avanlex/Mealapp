@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.Flow
 import javax.inject.Inject
 
-class ExploreViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     private val repository: MealRepository
 ) : ViewModel() {
     private val _mealList: MutableLiveData<List<MealDto>> = MutableLiveData(emptyList())
@@ -20,13 +20,5 @@ class ExploreViewModel @Inject constructor(
 
     fun getMealsFlow() = flow {
             emit(repository.getRandomMeals())
-    }
-
-    fun getMeals() {
-        if (_mealList.value?.isEmpty() == true) {
-            viewModelScope.launch {
-                repository.getRandomMeals()
-            }
-        }
     }
 }

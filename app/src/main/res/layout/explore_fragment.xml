@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edTVSeachWrite"
+        android:id="@+id/edTVSearchWrite"
         android:layout_width="321dp"
         android:layout_height="32dp"
         android:background="@drawable/gradient_box"
@@ -41,13 +41,13 @@
         tools:text="ar" />
 
     <ImageView
-        android:id="@+id/icseachStart"
+        android:id="@+id/icsearchStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/edTVSeachWrite"
-        app:layout_constraintEnd_toEndOf="@+id/edTVSeachWrite"
-        app:layout_constraintTop_toTopOf="@+id/edTVSeachWrite"
+        app:layout_constraintBottom_toBottomOf="@+id/edTVSearchWrite"
+        app:layout_constraintEnd_toEndOf="@+id/edTVSearchWrite"
+        app:layout_constraintTop_toTopOf="@+id/edTVSearchWrite"
         app:srcCompat="@drawable/ic_search" />
 
     <androidx.recyclerview.widget.RecyclerView
