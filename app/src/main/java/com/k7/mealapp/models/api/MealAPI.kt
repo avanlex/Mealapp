@@ -1,6 +1,10 @@
 package com.k7.mealapp.model.api
 
+import android.os.Parcel
 import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 
 data class MealAPI (
