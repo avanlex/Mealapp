@@ -1,18 +1,12 @@
 package com.k7.mealapp
 
 import android.os.Bundle
-
-import android.util.Log
-
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
-=======
-import com.k7.mealapp.model.api.MealAPI
-
 import com.k7.mealapp.model.api.SearchAPI
 import com.k7.mealapp.models.dto.MealDto
 import com.k7.mealapp.models.dto.convertToPojo
