@@ -24,16 +24,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -42,9 +32,6 @@ private const val ARG_PARAM2 = "param2"
  */
 
 class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListener {
-
-    // TODO: Rename and change types of parameters
-
     lateinit  var meal: String
     lateinit var listFoundMeals:List<MealDto>
 
@@ -57,18 +44,14 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     fun setListener(l: ClickListener) {
         listener = l
     }
 
-
     interface ClickListener {
        // fun openMovieDetall(data: Movie)
-
-
     }
 
     private fun loadSavedState(){
@@ -81,33 +64,22 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
 
         rvMeals = view.findViewById(R.id.rvMealFound)
 
-
-
         val net = Network()
         recycler =view.findViewById(R.id.rvMealFound)
         CoroutineScope(Dispatchers.Main).launch {
             var listApi = net.searchFoodName(meal)
             var needList=getmeals(listApi)
             var d = needList
-            /////////
             adapterMeals.setData(needList) // bind(,)
-            ////
             recycler?.adapter = adapterMeals
-
         }
 
     }
-    ////////
+
    fun getmeals(mealsList:SearchAPI): List<MealDto>{
-
-
-//
-            println("REPO" + mealsList.meals)
+        println("REPO" + mealsList.meals)
         return      mealsList.meals.map { it.convertToPojo() }
-
-
-}
-    /////////
+   }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -128,18 +100,13 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
         }
     }
 
-
-
-
     override fun onItemClick(meal: MealDto) {
         requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.container, DetailsFragment.newInstance(meal))
                 .addToBackStack(null)
                 .commit()
-
-
-
     }
+
     /*  companion object {
           /**
            * Use this factory method to create a new instance of
