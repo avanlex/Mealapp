@@ -23,33 +23,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/icseachStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#9C27B0"
-        app:layout_constraintBottom_toBottomOf="@+id/edTVSeachWrite"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toEndOf="@+id/edTVSeachWrite"
-        app:layout_constraintTop_toTopOf="@+id/edTVSeachWrite"
-        app:srcCompat="@drawable/ic_search" />
-
     <EditText
         android:id="@+id/edTVSeachWrite"
         android:layout_width="321dp"
-        android:layout_height="28dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="32dp"
+        android:background="@drawable/gradient_box"
         android:ems="10"
-        android:hint="only English"
         android:inputType="textPersonName"
         android:text="Ar"
-        android:textColor="#E91E63"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/rv_meals"
+        app:layout_constraintVertical_bias="0.052"
         tools:text="ar" />
+
+    <ImageView
+        android:id="@+id/icseachStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edTVSeachWrite"
+        app:layout_constraintEnd_toEndOf="@+id/edTVSeachWrite"
+        app:layout_constraintTop_toTopOf="@+id/edTVSeachWrite"
+        app:srcCompat="@drawable/ic_search" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_meals"
@@ -68,15 +67,15 @@
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="64dp"
         android:background="@drawable/gradient_box"
         android:elevation="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_meals">
 
         <ImageButton
             android:id="@+id/imageButton1"
