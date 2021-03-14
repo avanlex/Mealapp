@@ -1,20 +1,34 @@
 package com.k7.mealapp
 
 import android.os.Bundle
+
+import android.util.Log
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.recyclerview.widget.RecyclerView
+=======
+import com.k7.mealapp.model.api.MealAPI
+
 import com.k7.mealapp.model.api.SearchAPI
 import com.k7.mealapp.models.dto.MealDto
 import com.k7.mealapp.models.dto.convertToPojo
 import com.k7.mealapp.network.Network
 import com.k7.mealapp.ui.DetailsFragment
+
 import com.k7.mealapp.ui.MealsRecyclerViewAdapterSearch
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,11 +40,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SeachFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListener {
+
     // TODO: Rename and change types of parameters
 
     lateinit  var meal: String
     lateinit var listFoundMeals:List<MealDto>
+
 
     private var recycler: RecyclerView? = null
     private lateinit var rvMeals : RecyclerView
@@ -61,6 +78,7 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadSavedState()
+
         rvMeals = view.findViewById(R.id.rvMealFound)
 
 
@@ -75,6 +93,7 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
             adapterMeals.setData(needList) // bind(,)
             ////
             recycler?.adapter = adapterMeals
+
         }
 
     }
@@ -111,6 +130,7 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
 
 
 
+
     override fun onItemClick(meal: MealDto) {
         requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.container, DetailsFragment.newInstance(meal))
@@ -139,4 +159,5 @@ class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListe
                   }
               }
       }*/
+
 }
