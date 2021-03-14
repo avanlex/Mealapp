@@ -1,13 +1,21 @@
 package com.k7.mealapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.k7.mealapp.model.api.MealAPI
+import com.k7.mealapp.model.api.SearchAPI
 import com.k7.mealapp.models.dto.MealDto
+import com.k7.mealapp.models.dto.convertToPojo
+import com.k7.mealapp.network.Network
 import com.k7.mealapp.ui.DetailsFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +31,7 @@ class SeachFragment : Fragment() {
     // TODO: Rename and change types of parameters
 
     lateinit  var meal: String
-
+    lateinit var listFoundMeals:List<MealDto>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,8 +43,27 @@ class SeachFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadSavedState()
+       val net = Network()
+        CoroutineScope(Dispatchers.IO).launch {
+            var listApi = net.searchFoodName(meal)
+            var needList=getmeals(listApi)
+            var d = needList
+
+        }
 
     }
+    ////////
+   fun getmeals(mealsList:SearchAPI): List<MealDto>{
+
+
+//
+            println("REPO" + mealsList.meals)
+        return      mealsList.meals.map { it.convertToPojo() }
+
+
+}
+    /////////
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
