@@ -96,11 +96,13 @@ class ExploreFragment : Fragment(R.layout.explore_fragment) {
         // Setting adapter to RecyclerView
         adapterMeals = MealsRecyclerViewAdapter()
         rvMeals.adapter = adapterMeals
+
+        adapterMeals.setOnOpenMealDetailsClickListener{ openMealDetails(it) }
     }
 
-    private fun openMovieDetails(meal: MealDto) {
+    private fun openMealDetails(meal: MealDto) {
         requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.container, DetailsFragment(meal))
+                .replace(R.id.container, DetailsFragment.newInstance(meal))
                 .addToBackStack(null)
                 .commit()
     }

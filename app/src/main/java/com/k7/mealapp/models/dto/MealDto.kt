@@ -1,5 +1,9 @@
 package com.k7.mealapp.models.dto
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MealDto(
     var idMeal : Int,
     var name : String,
@@ -16,5 +20,5 @@ data class MealDto(
     var imageSource : String,
     var creativeCommonsConfirmed : String,
     var dateModified : String
-)
+):Parcelable
 

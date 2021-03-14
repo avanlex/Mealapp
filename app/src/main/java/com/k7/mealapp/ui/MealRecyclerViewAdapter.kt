@@ -54,6 +54,8 @@ class MealViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     ) {
         name.text = meal.name
 
+        itemView.setOnClickListener{onOpenDetails?.onClick(meal)}
+
 
         poster.load(meal.mealThumb) {
             crossfade(true)

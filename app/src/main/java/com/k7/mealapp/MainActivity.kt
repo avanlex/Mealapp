@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         }
         createNotificationChannel()
 
-        val servise = WorkWithWorkmanager()
-        servise.startService()
+//        val servise = WorkWithWorkmanager()
+//        servise.startService()
 
     }
 
