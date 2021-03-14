@@ -3,7 +3,7 @@ package com.k7.mealapp.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ProgressBar
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.k7.mealapp.R
+import com.k7.mealapp.SeachFragment
 import com.k7.mealapp.models.dto.MealDto
+import com.k7.mealapp.network.Network
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -66,11 +68,29 @@ class ExploreFragment : Fragment(R.layout.explore_fragment) {
 //        viewModel.getMeals()
 //        viewModel.mealList.observe(this.viewLifecycleOwner, this.adapterMeals::bind)
 //        lifecycleScope.launch {
+
         CoroutineScope(Dispatchers.Main).launch {
             viewModel.getMealsFlow().collect {
                 adapterMeals.bind(it)
             }
         }
+
+        val textSeach = view.findViewById<EditText>(R.id.edTVSeachWrite)
+        val bSeach = view.findViewById<ImageView>(R.id.icseachStart)
+        bSeach.setOnClickListener {
+            val textSeach = textSeach.text
+
+
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, SeachFragment.newInstance(textSeach.toString()))
+                .addToBackStack(null)
+                .commit()
+
+
+        }
+
+
 
     }
 

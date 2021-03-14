@@ -23,38 +23,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_search"
-        android:layout_width="0dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/gradient_box"
-        android:drawablePadding="4dp"
-        android:elevation="8dp"
-        android:gravity="center"
-        android:hint="Search for recipes"
-        android:textColor="@color/white"
-        android:textColorHint="#AAFFFFFF"
-        android:textStyle="bold"
-        app:drawableEndCompat="@drawable/ic_search"
+    <ImageView
+        android:id="@+id/icseachStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#9C27B0"
+        app:layout_constraintBottom_toBottomOf="@+id/edTVSeachWrite"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/edTVSeachWrite"
+        app:layout_constraintTop_toTopOf="@+id/edTVSeachWrite"
+        app:srcCompat="@drawable/ic_search" />
+
+    <EditText
+        android:id="@+id/edTVSeachWrite"
+        android:layout_width="321dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="only English"
+        android:inputType="textPersonName"
+        android:text="Ar"
+        android:textColor="#E91E63"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/rv_meals"
+        tools:text="ar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_meals"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="64dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGreetings"
-        app:layout_constraintVertical_bias="0.0"
         tools:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/view_holder_meal"
         tools:orientation="horizontal" />
