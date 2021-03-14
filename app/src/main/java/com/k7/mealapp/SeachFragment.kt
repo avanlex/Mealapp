@@ -1,21 +1,34 @@
 package com.k7.mealapp
 
 import android.os.Bundle
+
 import android.util.Log
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
+import androidx.recyclerview.widget.RecyclerView
+=======
 import com.k7.mealapp.model.api.MealAPI
+
 import com.k7.mealapp.model.api.SearchAPI
 import com.k7.mealapp.models.dto.MealDto
 import com.k7.mealapp.models.dto.convertToPojo
 import com.k7.mealapp.network.Network
 import com.k7.mealapp.ui.DetailsFragment
+
+import com.k7.mealapp.ui.MealsRecyclerViewAdapterSearch
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,15 +40,37 @@ private const val ARG_PARAM2 = "param2"
  * Use the [SeachFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SeachFragment : Fragment() {
+
+class SeachFragment : Fragment(),MealsRecyclerViewAdapterSearch.OnItemClickListener {
+
     // TODO: Rename and change types of parameters
 
     lateinit  var meal: String
     lateinit var listFoundMeals:List<MealDto>
+
+
+    private var recycler: RecyclerView? = null
+    private lateinit var rvMeals : RecyclerView
+    private  var adapterMeals: MealsRecyclerViewAdapterSearch =MealsRecyclerViewAdapterSearch(this)
+
+    private var listener:ClickListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
+
+    fun setListener(l: ClickListener) {
+        listener = l
+    }
+
+
+    interface ClickListener {
+       // fun openMovieDetall(data: Movie)
+
+
+    }
+
     private fun loadSavedState(){
         meal = requireArguments().getString(SeachFragment.MEAL_KEY)!!
     }
@@ -43,11 +78,21 @@ class SeachFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadSavedState()
-       val net = Network()
-        CoroutineScope(Dispatchers.IO).launch {
+
+        rvMeals = view.findViewById(R.id.rvMealFound)
+
+
+
+        val net = Network()
+        recycler =view.findViewById(R.id.rvMealFound)
+        CoroutineScope(Dispatchers.Main).launch {
             var listApi = net.searchFoodName(meal)
             var needList=getmeals(listApi)
             var d = needList
+            /////////
+            adapterMeals.setData(needList) // bind(,)
+            ////
+            recycler?.adapter = adapterMeals
 
         }
 
@@ -82,23 +127,37 @@ class SeachFragment : Fragment() {
             return fragment
         }
     }
-  /*  companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SeachFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SeachFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }*/
+
+
+
+
+    override fun onItemClick(meal: MealDto) {
+        requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, DetailsFragment.newInstance(meal))
+                .addToBackStack(null)
+                .commit()
+
+
+
+    }
+    /*  companion object {
+          /**
+           * Use this factory method to create a new instance of
+           * this fragment using the provided parameters.
+           *
+           * @param param1 Parameter 1.
+           * @param param2 Parameter 2.
+           * @return A new instance of fragment SeachFragment.
+           */
+          // TODO: Rename and change types and number of parameters
+          @JvmStatic
+          fun newInstance(param1: String, param2: String) =
+              SeachFragment().apply {
+                  arguments = Bundle().apply {
+                      putString(ARG_PARAM1, param1)
+                      putString(ARG_PARAM2, param2)
+                  }
+              }
+      }*/
+
 }
